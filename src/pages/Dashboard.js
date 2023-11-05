@@ -11,7 +11,7 @@ const Dashboard = () => {
   const getCurrentWeather = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3333/weather/getWeather/${locationRef.current.value}`
+        `${process.env.REACT_APP_API_URL}weather/getWeather/${locationRef.current.value}`
       )
       setCurrentWeather(response.data)
     } catch (error) {
@@ -22,7 +22,7 @@ const Dashboard = () => {
   const getWeatherForecast = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3333/weather/getWeatherForecast/${locationRef.current.value}`
+        `${process.env.REACT_APP_API_URL}weather/getWeatherForecast/${locationRef.current.value}`
       )
       setForecastData(response.data)
     } catch (error) {
