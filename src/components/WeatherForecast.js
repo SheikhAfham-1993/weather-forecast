@@ -26,19 +26,19 @@ const WeatherForecast = ({ forecastData }) => {
               />
             </div>
             <span>
-              Temprature: <b>{list.main.temp} °C</b>
+              Temprature: <b>{list?.main?.temp} °C</b>
             </span>
             <span>
-              Feels like: <b>{list.main.feels_like} °C</b>
+              Feels like: <b>{list?.main?.feels_like} °C</b>
             </span>
             <span>
-              Wind speed: <b>{list.wind.speed} m/s</b>
+              Wind speed: <b>{list?.wind?.speed} m/s</b>
             </span>
             <span>
-              Humidity: <b>{list.main.humidity} %</b>
+              Humidity: <b>{list?.main?.humidity} %</b>
             </span>
             <span>
-              Humidity: <b>{list.main.pressure} hPa</b>
+              Humidity: <b>{list?.main?.pressure} hPa</b>
             </span>
           </div>
         ))}

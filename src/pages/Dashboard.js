@@ -13,10 +13,8 @@ const Dashboard = () => {
       const response = await axios.get(
         `http://localhost:3333/weather/getWeather/${locationRef.current.value}`
       )
-      console.log({ response })
       setCurrentWeather(response.data)
     } catch (error) {
-      console.log({ error })
       setCurrentWeather(null)
     }
   }
@@ -28,14 +26,13 @@ const Dashboard = () => {
       )
       setForecastData(response.data)
     } catch (error) {
-      console.log(error)
       setForecastData(null)
     }
   }
 
   useEffect(() => {
-    // getCurrentWeather()
-    // getWeatherForecast()
+    getCurrentWeather()
+    getWeatherForecast()
   }, [])
 
   return (
@@ -65,7 +62,7 @@ const Dashboard = () => {
                     {currentWeather?.name}
                   </span>
                   <span className="text-xl font-bold ">
-                    {currentWeather?.main.temp} °C
+                    {currentWeather?.main?.temp} °C
                   </span>
                 </div>
 
@@ -91,7 +88,9 @@ const Dashboard = () => {
           </div>
         )}
         {!currentWeather && (
-          <div className="flex justify-center items-center h-full">No Data</div>
+          <div className="flex justify-center items-center h-full text-white text-3xl font-bold">
+            The city could not be found
+          </div>
         )}
       </div>
     </div>
